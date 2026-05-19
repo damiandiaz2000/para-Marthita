@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Marthita</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        /* Estilo tipo ventana/tarjeta de app */
+        .window-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            display: none; /* Ocultas por defecto */
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Mostramos solo la ventana activa */
+        .window-card.active {
+            display: block;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .cr7-quote {
+            font-style: italic;
+            color: #555;
+        }
+
+        .siuuu {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .heart {
+            color: #e0245e;
+            font-size: 1.5rem;
+        }
+
+        /* Botón Siguiente */
+        .btn-next {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-next:hover {
+            background: #0056b3;
+        }
+
+        /* Animación suave al cambiar de ventana */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ventana 1 -->
+    <div class="window-card active" id="win1">
+        <h2>Ánimos Marthita, a veces tenemos momentos donde no pensamos y solo actuamos...</h2>
+        <button class="btn-next" onclick="nextWindow(1, 2)">Siguiente</button>
+    </div>
+
+    <!-- Ventana 2 -->
+    <div class="window-card" id="win2">
+        <h2>Sin embargo, eso no nos hace malas personas. Siempre estás a tiempo de cambiar y hacer las cosas bien.</h2>
+        <button class="btn-next" onclick="nextWindow(2, 3)">Siguiente</button>
+    </div>
+
+    <!-- Ventana 3 -->
+    <div class="window-card" id="win3">
+        <h2>Recuerda, para todo hay solución.</h2>
+        <button class="btn-next" onclick="nextWindow(3, 4)">Siguiente</button>
+    </div>
+
+    <!-- Ventana 4 -->
+    <div class="window-card" id="win4">
+        <h2 class="cr7-quote">"Solo no hay solución para la muerte." <span class="siuuu">¡SIUUU! ⚽</span></h2>
+        <button class="btn-next" onclick="nextWindow(4, 5)">Siguiente</button>
+    </div>
+
+    <!-- Ventana 5 (Última) -->
+    <div class="window-card" id="win5">
+        <h2>Eres una persona maravillosa, Marthita <span class="heart">❤️</span></h2>
+    </div>
+
+    <script>
+        function nextWindow(current, next) {
+            // Oculta la ventana actual
+            document.getElementById('win' + current).classList.remove('active');
+            // Muestra la siguiente ventana
+            document.getElementById('win' + next).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
